@@ -1,14 +1,18 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
     return (
         <nav>
         <div className="nav-wrapper ">
-          <a href="#" className="brand-logo">КнигиВики</a>
+        <ul id="nav-mobile" className="left hide-on-med-and-down">
+            <li><NavLink to="/admins">Админка</NavLink></li>
+          </ul>
+
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="sass.html">Книги</a></li>
-            <li><a href="badges.html">Авторы</a></li>
-            <li><a href="collapsible.html">Жанры</a></li>
+            <li><NavLink to="/">Книги</NavLink></li>
+            <li><NavLink to='/author'>Авторы</NavLink></li>
+            <li><NavLink to="/genre">Жанры</NavLink></li>
           </ul>
         </div>
       </nav>
