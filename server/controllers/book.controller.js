@@ -1,6 +1,6 @@
 const db = require('../db');
 
-class UserController {
+class BookController {
     async createBook(req, res) {
         const {book_id, title, isbn, description, price} = req.body;
         console.log(book_id, title);
@@ -8,7 +8,7 @@ class UserController {
         [book_id, title, isbn, description, price])
         res.json(newPerson.rows[0]) 
     }
-    async getUsers(req, res) {
+    async getBooks(req, res) {
         const users = await db.query(`select * FROM book`)
         res.json(users.rows)
     }
@@ -29,4 +29,4 @@ class UserController {
     }
 }
 
-module.exports = new UserController()
+module.exports = new BookController()

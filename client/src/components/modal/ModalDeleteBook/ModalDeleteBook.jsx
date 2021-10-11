@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
-import { deleteBook } from '../../../API/methods';
+// import { deleteBook } from '../../../API/methods';
 import '../ModalAddBook/ModalAdminPanel.scss'
 
 export default function ModalDeleteBook({setShow, show}) {
     function formSubmit(e) {
         e.preventDefault();
-        deleteBook({book_id, title,isbn, description, price})
+        // deleteBook({book_id, title,isbn, description, price})
       }
-      const book_id = useSelector(state => state.books.length + 1);
+      // const book_id = useSelector(state => state.books.length + 1);
       const book = useSelector(state => state.books);
       console.log(book);
-      const [ title , setTitle] = useState('')
-      const [isbn, setIsbn] = useState('')
-      const [description, setDescription] = useState('')
-      const [price, setPrice] = useState('')
+      // const [title , setTitle] = useState('')
+      // const [isbn, setIsbn] = useState('')
+      // const [description, setDescription] = useState('')
+      // const [price, setPrice] = useState('')
       return (
         <div
           onClick={() => setShow(false)}

@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router-dom';
 
 export default function BookItem({ book }) {
   return (
@@ -11,8 +12,8 @@ export default function BookItem({ book }) {
           <p style={{flex: '0 0 auto'}}>isbn {book.isbn}</p>
         </div>
         <div className="card-action">
-          <a href="#">Купить</a>
-          <a href="#">В корзину</a>
+          <NavLink to="#">Купить</NavLink>
+          <NavLink to="#">В корзину</NavLink>
         </div>
       </div>
     </div>

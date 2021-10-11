@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { genre_onload } from "../../redux/actions/actions";
+import {NavLink} from 'react-router-dom';
 
 export default function Genre() {
     const dispatch = useDispatch()
-  async function getGenre() {
-    const response = await fetch("http://localhost:8080/api/genre");
-    const data = await response.json();
-    dispatch(genre_onload(data))
-  }
-  const genre = useSelector(state => state.genre)
-  useEffect(() => {
+    const genre = useSelector(state => state.genre)
+    useEffect(() => {
+    async function getGenre() {
+      const response = await fetch("http://localhost:8080/api/genre");
+      const data = await response.json();
+      dispatch(genre_onload(data))
+    }
     getGenre();
-  }, []);
+  }, [dispatch]);
   return (
   <div className="row">
       {genre?.map(genre => 
@@ -22,7 +23,7 @@ export default function Genre() {
                 <span className="card-title">{genre.type}</span>
               </div>
               <div className="card-action">
-                <a href="#">Перейти к книгам этого жанра</a>
+                <NavLink to="#">Перейти к книгам этого жанра</NavLink>
               </div>
             </div>
           </div>
