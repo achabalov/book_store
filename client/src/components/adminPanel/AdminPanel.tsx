@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import ModalAdminPanel from "../modal/ModalAddBook/ModalAddBook";
+import {ModalAdminPanel} from "../modal/ModalAddBook/ModalAddBook";
 import ModalDeleteBook from "../modal/ModalDeleteBook/ModalDeleteBook";
 
-export default function AdminPanel() {
-  const [showModalAddBook, setShowModalAddBook] = useState("");
-  function handlerModalForm(target) {
-    if (target === "add-book") {
+export const AdminPanel = () => {
+  const [showModalAddBook, setShowModalAddBook] = useState<string>("");
+  const handlerModalForm = (e: any) => {
+    if (e.target.dataset.modal === "add-book") {
       setShowModalAddBook("add-book");
-    } else if (target === "delete-book") {
+    } else if (e.target.dataset.modal  === "delete-book") {
       setShowModalAddBook("delete-book");
     } else {
-      setShowModalAddBook("");
+      setShowModalAddBook('');
     }
   }
 
   return (
     <div className="container center-align">
       <div
-        onClick={(e) => {
-          handlerModalForm(e.target.dataset.modal);
+        onClick={(e: React.MouseEvent<HTMLInputElement>) => {
+          handlerModalForm(e);
         }}
       >
         <button data-modal="add-book" className="waves-effect waves-light btn">
@@ -36,7 +36,7 @@ export default function AdminPanel() {
         <button className="waves-effect waves-light btn">Удалить жанр</button>
       </div>
 
-      {showModalAddBook === "add-book" ? (
+       {showModalAddBook === "add-book" ? (
         <ModalAdminPanel
           show={showModalAddBook}
           setShow={setShowModalAddBook}
@@ -48,7 +48,7 @@ export default function AdminPanel() {
         />
       ) : (
         ""
-      )}
+      )} 
     </div>
   );
 }

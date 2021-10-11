@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {Switch} from 'react-router';
-import Navbar from "./components/Navbar/Navbar";
+import {Navbar} from "./components/Navbar/Navbar";
 import { book_onload } from "./redux/actions/actions";
-import AppRouter from "./router/AppRouter";
+import { AppRouter } from "./router/AppRouter";
 import axios from 'axios';
+
 
 interface IFetch {
   book_id: number;
@@ -32,9 +32,7 @@ export const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      <Switch>
         <AppRouter />
-      </Switch>
     </>
   );
 }

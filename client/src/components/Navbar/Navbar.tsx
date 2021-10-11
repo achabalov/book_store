@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Navbar() {
+export const Navbar: React.FC = () => {
     return (
         <nav>
         <div className="nav-wrapper ">
